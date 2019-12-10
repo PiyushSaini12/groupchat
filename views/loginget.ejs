@@ -4,22 +4,33 @@
       <a href="/">Chat App</a>
     </li>
 
-    <% if (!user) { %>
     <li>
       <a href="/register">Register</a>
     </li>
     <li>
       <a href="/login">Login</a>
     </li>
-    <% } %> <% if (user) { %>
+
     <li>
       <a href="/logout">Logout</a>
     </li>
-    <% } %>
   </ul>
 
   <span class="badge success"> </span>
 </nav>
+<% if (messages.length > 0) { %>
+<div class="row flex-spaces">
+  <div class="alert alert-danger">
+    <%= messages.toString() %>
+  </div>
+</div>
+<% } else { %>
+<div class="row flex-spaces">
+  <div class="alert alert-secondary">
+    Please enter your credentials
+  </div>
+</div>
+<% } %>
 <h1>
   <%= title %>
   <link
@@ -27,15 +38,16 @@
     href="https://unpkg.com/papercss@1.5.1/dist/paper.min.css"
   />
 </h1>
-
 <div class="row flex-center">
   <div class="sm-4 col">
     <div class="card" style="width: 20rem;">
       <div class="card-body">
-        <form method="POST">
+        <form method="GET">
           <div class="form-group">
             <label for="username">Email</label>
             <input
+              placeholder="Please type password here"
+              autocomplete="off"
               type="email"
               id="username"
               name="username"
@@ -44,8 +56,10 @@
             />
           </div>
           <div class="form-group">
-            <label for="password">Create Password</label>
+            <label for="password">Password</label>
             <input
+              placeholder="Please type password here"
+              autocomplete="off"
               type="password"
               id="password"
               name="password"
@@ -53,24 +67,15 @@
               required
             />
           </div>
-          <div class="form-group">
-            <label for="password_confirm">Retype Password above</label>
-            <input
-              type="password"
-              id="confirm"
-              name="confirm"
-              class="input-block"
-              required
-            />
-          </div>
-          <button type="submit" class="btn-secondary btn-block">
-            Create my Account
+          <button type="submit" class="btn-primary btn-block">
+            Login to my Account →
           </button>
+          <br />
         </form>
       </div>
       <div class="card-footer">
-        Already have an account?
-        <a href="/login">Login</a>
+        Need access?
+        <a href="/register">Register</a>
       </div>
     </div>
   </div>

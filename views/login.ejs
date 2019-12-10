@@ -4,16 +4,18 @@
       <a href="/">Chat App</a>
     </li>
 
+    <% if (!user) { %>
     <li>
       <a href="/register">Register</a>
     </li>
     <li>
       <a href="/login">Login</a>
     </li>
-
+    <% } %> <% if (user) { %>
     <li>
       <a href="/logout">Logout</a>
     </li>
+    <% } %>
   </ul>
 
   <span class="badge success"> </span>
@@ -46,6 +48,8 @@
           <div class="form-group">
             <label for="username">Email</label>
             <input
+              placeholder="Please type password here"
+              autocomplete="off"
               type="email"
               id="username"
               name="username"
@@ -56,6 +60,8 @@
           <div class="form-group">
             <label for="password">Password</label>
             <input
+              placeholder="Please type password here"
+              autocomplete="off"
               type="password"
               id="password"
               name="password"

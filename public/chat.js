@@ -29,6 +29,6 @@ sendMessage.addEventListener('click', (event) => {
 
 /* Emit a username */
 sendUsername.addEventListener('click', () => {
-  console.log(username.textContent);
   socket.emit('change_username', { username: username.value });
+  alert(`Username changed to ${username.value}`);
 });

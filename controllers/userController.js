@@ -1,8 +1,11 @@
+/* eslint-disable linebreak-style */
 const passport = require('passport');
 const User = require('../models/User');
 
 exports.home = (req, res) => {
-  res.render('index');
+  res.render('index', {
+    user: req.user,
+  });
 };
 
 exports.registerForm = (req, res) => {
