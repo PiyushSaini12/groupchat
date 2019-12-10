@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/papercss@1.5.1/dist/paper.min.css"
-    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -21,9 +17,10 @@
       rel="stylesheet"
       href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"
     />
-  </head>
-
-  <body>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.5.1/dist/paper.min.css"
+    />
     <nav class="border split-nav">
       <ul class="inline">
         <li>
@@ -42,12 +39,14 @@
         </li>
       </ul>
 
-      <span class="badge success"> </span>
+      <span class="badge success"> Welcome to Chat App</span>
     </nav>
-    <h1>My chatApp</h1>
+  </head>
+
+  <body>
     <div class="container ">
       <div class="row ">
-        <div class="column column-50 column-offset-25 ">
+        <div class="column column-50 column-offset-15 ">
           <label for="username">username</label>
           <input type="text" name="username" id="username" />
           <button id="send_username">Change username</button>
@@ -58,9 +57,10 @@
               <label for="chatroom">chatroom</label>
               <main
                 id="chatroom"
-                style="height: 40vh; border: 3px dotted #ccc; overflow-y: scroll"
+                style="width: 50vw; height: 40vh; border: 3px dotted #ccc; overflow-y: scroll"
               ></main>
-
+              <br />
+              <br />
               <label for="message">message</label>
               <input type="text" name="message" id="message" />
               <button class="column" id="send_message" type="submit">

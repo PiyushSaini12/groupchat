@@ -1,19 +1,19 @@
-const socket = io.connect("http://localhost:3000");
-//const socket = io.connect(`${window.location.hostname}`);
+const socket = io.connect('http://localhost:3000');
+// const socket = io.connect(`${window.location.hostname}`);
 
 /* buttons and inputs */
-const chatroom = document.getElementById("chatroom");
-const message = document.getElementById("message");
-const sendMessage = document.getElementById("send_message");
-const username = document.getElementById("username");
-const sendUsername = document.getElementById("send_username");
+const chatroom = document.getElementById('chatroom');
+const message = document.getElementById('message');
+const sendMessage = document.getElementById('send_message');
+const username = document.getElementById('username');
+const sendUsername = document.getElementById('send_username');
 
 /* listen on new_message */
-socket.on("new_message", data => {
+socket.on('new_message', (data) => {
   console.log(data);
   chatroom.insertAdjacentHTML(
-    "beforeend",
-    `<p>${data.username}: ${data.message}</p>`
+    'beforeend',
+    `<p>${data.username}: ${data.message}</p>`,
   );
 
   // keep focus scrolled to bottom for new chats
@@ -21,14 +21,14 @@ socket.on("new_message", data => {
 });
 
 /* Emit message */
-sendMessage.addEventListener("click", event => {
+sendMessage.addEventListener('click', (event) => {
   event.preventDefault();
-  socket.emit("new_message", { message: message.value });
-  message.value = "";
+  socket.emit('new_message', { message: message.value });
+  message.value = '';
 });
 
 /* Emit a username */
-sendUsername.addEventListener("click", () => {
+sendUsername.addEventListener('click', () => {
   console.log(username.textContent);
-  socket.emit("change_username", { username: username.value });
+  socket.emit('change_username', { username: username.value });
 });
