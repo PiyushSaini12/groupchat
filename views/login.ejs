@@ -1,5 +1,42 @@
+<nav class="border split-nav">
+  <ul class="inline">
+    <li>
+      <a href="/">Chat App</a>
+    </li>
+
+    <li>
+      <a href="/register">Register</a>
+    </li>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+
+    <li>
+      <a href="/logout">Logout</a>
+    </li>
+  </ul>
+
+  <span class="badge success"> </span>
+</nav>
+<% if (messages.length > 0) { %>
+<div class="row flex-spaces">
+  <div class="alert alert-danger">
+    <%= messages.toString() %>
+  </div>
+</div>
+<% } else { %>
+<div class="row flex-spaces">
+  <div class="alert alert-secondary">
+    Please enter your credentials
+  </div>
+</div>
+<% } %>
 <h1>
   <%= title %>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/papercss@1.5.1/dist/paper.min.css"
+  />
 </h1>
 <div class="row flex-center">
   <div class="sm-4 col">
